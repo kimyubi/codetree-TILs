@@ -1,20 +1,24 @@
-n = int(input())
-cnt = 0
+import sys
+ans = sys.maxsize
 
-while True:
-    if n == 1:
-        print(cnt)
-        break
-    
+def solution(depth, n):
+    global ans
+    if depth == 1000000:
+        print(ans)
+        sys.exit(0)
+
+    if n <= 1:
+        ans = min(ans, depth)
+        return
+
     if not n % 3:
-        n //= 3
-        cnt += 1
-        continue
+        solution(depth + 1, n // 3)
     
     if not n % 2:
-        n //= 2
-        cnt += 1
-        continue
+        solution(depth + 1, n // 2)
     
-    n -= 1
-    cnt += 1
+    solution(depth + 1, n-1)
+
+n = int(input())
+solution(0, n)
+print(ans)
