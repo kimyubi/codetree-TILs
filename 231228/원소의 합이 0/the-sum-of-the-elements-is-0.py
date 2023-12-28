@@ -15,5 +15,5 @@ for c in data[2]:
 
 ans = 0
 for key in dic_1.keys():
-    ans += dic_2[-key]
+    ans += dic_1[key] * dic_2[-key]
 print(ans)
