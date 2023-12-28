@@ -11,6 +11,7 @@ for a in data[0]:
 
 for c in data[2]:
     for d in data[3]:
-        ans += dic[-(c + d)]
+        target = -(c + d)
+        ans += dic[target]
 
 print(ans)
