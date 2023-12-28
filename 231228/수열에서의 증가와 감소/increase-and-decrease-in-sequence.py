@@ -1,17 +1,25 @@
 n = int(input())
 data = list(map(int, input().split()))
 
-dp_increase = [1] * n
-dp_decrease = [1] * n
+ans1 = 0
+ans2 = 0
 
-for i in range(n):
-    for j in range(i):
-        if data[j] <= data[i]:
-            dp_increase[i]= max(dp_increase[j] + 1, dp_increase[i])
+tmp1 = 1
+for i in range(1, n):
+    if data[i-1] <= data[i]:
+        tmp1 += 1
+    else:
+        ans1 = max(ans1, tmp1) 
+        tmp1 = 1
+ans1 = max(ans1, tmp1) 
 
-for i in range(n):
-    for j in range(i):
-        if data[i] <= data[j]:
-            dp_decrease[i]= max(dp_decrease[j] + 1, dp_decrease[i])
+tmp2 = 1
+for i in range(1, n):
+    if data[i-1] >= data[i]:
+        tmp2 += 1
+    else:
+        ans2 = max(ans2, tmp2) 
+        tmp2 = 1
+ans2 = max(ans2, tmp2) 
 
-print(max(max(dp_decrease), max(dp_increase)))
+print(max(ans1, ans2))
