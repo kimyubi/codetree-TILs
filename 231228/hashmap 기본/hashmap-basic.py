@@ -3,6 +3,7 @@ import sys
 input = sys.stdin.readline
 n = int(input())
 dic = dict()
+
 for _ in range(n):
     data = input().split()
     command = data[0]
