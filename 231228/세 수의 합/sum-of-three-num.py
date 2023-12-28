@@ -6,9 +6,9 @@ ans = 0
 for i in range(2, n):
     target = k - data[i]
     dic = defaultdict(int)
+
     for j in range(i):
-        diff = target - data[j]
-        ans += dic[diff]
+        ans += dic[target - data[j]]
         dic[data[j]] += 1
 
 print(ans)
