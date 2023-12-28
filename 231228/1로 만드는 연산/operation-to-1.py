@@ -1,24 +1,16 @@
 import sys
-ans = sys.maxsize
-
-def solution(depth, n):
-    global ans
-    if depth == 1000000:
-        print(ans)
-        sys.exit(0)
-
-    if n <= 1:
-        ans = min(ans, depth)
-        return
-
-    if not n % 3:
-        solution(depth + 1, n // 3)
-    
-    if not n % 2:
-        solution(depth + 1, n // 2)
-    
-    solution(depth + 1, n-1)
+input = sys.stdin.readline
 
 n = int(input())
-solution(0, n)
-print(ans)
+dp = [0] * (n + 1)
+
+for i in range(2, n + 1):
+    dp[i] = dp[i-1] + 1
+    
+    if i % 2 == 0:
+        dp[i] = min(dp[i], dp[i//2] + 1)
+    
+    if i % 3 == 0:
+        dp[i] = min(dp[i], dp[i//3] + 1)
+        
+print(dp[n])
