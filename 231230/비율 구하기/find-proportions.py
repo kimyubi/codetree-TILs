@@ -10,4 +10,7 @@ for _ in range(n):
         dic[data] += 1
 
 for key, value in dic.items():
-    print(key,"{:.4f}".format(round(value/n * 100, 4)))
+    ratio = value / n * 100
+
+    # 소숫점 4째짜리까지만 출력합니다.
+    print(f"{key} {ratio:.4f}")
