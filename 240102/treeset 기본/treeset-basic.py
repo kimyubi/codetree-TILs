@@ -3,10 +3,6 @@ from sortedcontainers import SortedSet
 s = SortedSet()
 for _ in range(int(input())):
     command = input()
-    # print(s)
-    # print(command)
-    # print()
-
     if command == 'largest':
         if not s:
             print(None)
@@ -44,7 +40,6 @@ for _ in range(int(input())):
     if c == 'upper_bound':
         idx = s.bisect_right(x)
 
-        # 존재하는 경우에는 해당 값을 출력합니다.
         if idx < len(s):
             print(s[idx])
         else:
