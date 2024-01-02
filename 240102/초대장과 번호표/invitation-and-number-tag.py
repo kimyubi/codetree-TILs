@@ -1,7 +1,6 @@
 n, g = map(int, input().split())
 
 invitation = set()
-invitation.add(1)
 
 for idx in range(g):
     data = list(map(int, input().split()))
