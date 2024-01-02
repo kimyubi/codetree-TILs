@@ -9,14 +9,12 @@ for _ in range(int(input())):
             print(None)
         else:
             print(s[-1])
-        continue
     
     if command == 'smallest':
         if not s:
             print(None)
         else:
             print(s[0])
-        continue
 
     c, x = command.split()[0], command.split()[1]
     x = int(x)
